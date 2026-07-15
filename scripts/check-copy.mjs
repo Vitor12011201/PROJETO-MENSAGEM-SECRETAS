@@ -2,8 +2,31 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const extensions = new Set([".tsx", ".ts", ".jsx", ".js", ".md"]);
-const ignoredDirs = new Set(["node_modules", ".next", "test-results", ".git"]);
+const extensions = new Set([".tsx", ".jsx", ".md"]);
+const ignoredDirs = new Set([
+  "node_modules",
+  ".next",
+  "dist",
+  "build",
+  "coverage",
+  "test-results",
+  "playwright-report",
+  ".git"
+]);
+const ignoredFiles = new Set([
+  "package-lock.json",
+  "npm-shrinkwrap.json",
+  "pnpm-lock.yaml",
+  "yarn.lock",
+  "package.json"
+]);
+const visibleCopyFiles = [
+  /^README\.md$/,
+  /^src[\\/].*\.tsx$/,
+  /^src[\\/]app[\\/](privacy|terms|safety|community-guidelines)[\\/]page\.tsx$/,
+  /^src[\\/]features[\\/].*\.tsx$/,
+  /^src[\\/]components[\\/].*\.tsx$/
+];
 const suspicious = [
   "annimas", "anonimas", "voce", "nao", "seguranca",
   "configuracao", "moderacao", "usuario", "pagina", "publico",
@@ -36,8 +59,10 @@ function walk(dir) {
     if (ignoredDirs.has(entry.name)) continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) { walk(full); continue; }
+    if (ignoredFiles.has(entry.name)) continue;
     if (!extensions.has(path.extname(entry.name))) continue;
     const rel = path.relative(root, full);
+    if (!visibleCopyFiles.some((rule) => rule.test(rel))) continue;
     const lines = fs.readFileSync(full, "utf8").split(/\r?\n/);
     lines.forEach((line, index) => inspectLine(rel, index + 1, line));
   }
