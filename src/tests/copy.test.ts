@@ -10,10 +10,12 @@ const allText = () => collectText(root).join("\n");
 describe("copy review", () => {
   it("keeps the main landing copy in pt-BR", () => {
     const page = read("src/app/page.tsx");
-    expect(page).toContain("Descubra o que nunca tiveram coragem de dizer para você.");
-    expect(page).toContain("Mensagens anônimas consentidas");
+    expect(page).toContain("Descubra o que as pessoas");
+    expect(page).toContain("nunca tiveram coragem");
+    expect(page).toContain("Sua caixa secreta fica pronta em menos de 1 minuto");
+    expect(page).toContain("Criar minha caixa grátis");
+    expect(page).toContain("Ver uma caixa funcionando");
     expect(page).toContain("Sua identidade não será exibida ao destinatário.");
-    expect(page).toContain("Criar minha caixa");
   });
 
   it("keeps public message and success copy correct", () => {
@@ -31,12 +33,13 @@ describe("copy review", () => {
   it("does not contain the known broken anonymous message copy", () => {
     const text = allText();
     expect(text).not.toContain(knownBrokenAnonymousCopy);
-    expect(text).toContain("Mensagens anônimas consentidas");
+    expect(text).toContain("Sua caixa secreta fica pronta em menos de 1 minuto");
+    expect(text).toContain("Criar minha caixa grátis");
   });
 });
 
 function collectText(dir: string): string[] {
-  const ignored = new Set(["node_modules", ".next", "test-results", ".git"]);
+  const ignored = new Set(["node_modules", ".next", ".open-next", ".wrangler", "dist", "build", "coverage", "test-results", ".git"]);
   const extensions = new Set([".ts", ".tsx", ".md", ".sql"]);
   const output: string[] = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {

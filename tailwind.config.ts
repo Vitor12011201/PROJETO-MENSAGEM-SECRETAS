@@ -5,17 +5,41 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        night: "#0B1020",
-        violetDeep: "#6D4AFF",
-        lilac: "#A78BFA",
-        roseSoft: "#F472B6",
-        mist: "#F8FAFC",
-        slateText: "#94A3B8",
-        danger: "#EF4444",
-        success: "#22C55E"
+        night: "#120B14",
+        midnight: "#1A0F1D",
+        card: "#211322",
+        cardElevated: "#29172B",
+        pinkHot: "#FF3D7F",
+        pinkSoft: "#FF6B9D",
+        coral: "#FF7657",
+        honey: "#FFD166",
+        violetDeep: "#7B4DFF",
+        lilac: "#FF6B9D",
+        roseSoft: "#FF6B9D",
+        mist: "#FFF8FB",
+        slateText: "#CBB8C6",
+        mutedText: "#917D8C",
+        danger: "#FF5A67",
+        success: "#35D07F"
       },
       boxShadow: {
-        glow: "0 24px 80px rgba(109, 74, 255, 0.26)"
+        glow: "0 24px 80px rgba(255, 61, 127, 0.28)",
+        rose: "0 18px 48px rgba(255, 61, 127, 0.32)",
+        soft: "0 24px 80px rgba(11, 6, 16, 0.42)"
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" }
+        },
+        pulseSoft: {
+          "0%, 100%": { opacity: "0.72", transform: "scale(1)" },
+          "50%": { opacity: "1", transform: "scale(1.04)" }
+        }
+      },
+      animation: {
+        float: "float 6s ease-in-out infinite",
+        "pulse-soft": "pulseSoft 2.8s ease-in-out infinite"
       }
     }
   },
@@ -23,4 +47,3 @@ const config: Config = {
 };
 
 export default config;
-
