@@ -88,8 +88,9 @@ export default function HomePage() {
           <HeroGlow />
           <div className="mx-auto grid min-h-[calc(100vh-66px)] max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-16">
             <div className="max-w-3xl space-y-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-pinkSoft/45 bg-[#130C18]/80 px-3 py-1 text-[11px] font-black uppercase tracking-[0.05em] text-mist shadow-[0_0_30px_rgba(255,61,127,0.22)]">
-                <span aria-hidden="true">💌</span> Sua caixa secreta fica pronta em menos de 1 minuto
+              <div className="relative inline-flex max-w-full items-center gap-3 overflow-hidden rounded-full border border-pinkSoft/35 bg-[#3A1128]/85 px-4 py-2 font-[ui-rounded,system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-sm font-bold leading-none text-pinkSoft shadow-[0_0_18px_rgba(255,61,127,0.14)] backdrop-blur before:absolute before:inset-y-1 before:left-9 before:right-3 before:rounded-full before:bg-pinkSoft/12 before:blur-md sm:text-base">
+                <span aria-hidden="true" className="relative text-[13px] leading-none sm:text-sm">💌</span>
+                <span className="relative leading-tight tracking-normal drop-shadow-[0_0_8px_rgba(255,107,157,0.28)] sm:whitespace-nowrap">Sua caixa secreta fica pronta em menos de 1 minuto</span>
               </div>
               <div className="space-y-4">
                 <h1 className="max-w-4xl text-[39px] font-black leading-[1.02] tracking-normal text-mist sm:text-6xl lg:text-[64px]">
