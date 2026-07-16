@@ -6,7 +6,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-30 border-b border-white/10 bg-[#05030A]/82 backdrop-blur-2xl">
       <div className="mx-auto flex min-h-[66px] max-w-7xl items-center justify-between gap-3 px-4 py-2.5 sm:px-6 lg:px-8">
-        <Link href="/" className="focus-ring flex min-w-0 shrink-0 items-center rounded" aria-label="Nunca Te Disse - início">
+        <Link href="/" className="focus-ring flex min-h-11 min-w-0 shrink-0 items-center rounded" aria-label="Nunca Te Disse - início">
           <BrandLogo priority />
         </Link>
         <nav className="hidden items-center gap-8 text-sm font-semibold text-mist/88 lg:flex" aria-label="Navegação principal">

@@ -36,25 +36,25 @@ export function DashboardHome() {
     <main className="space-y-6">
       <div>
         <p className="text-sm text-lilac">Painel</p>
-        <h1 className="text-3xl font-bold">Olá, {profile.displayName}</h1>
+        <h1 className="text-2xl font-bold leading-tight sm:text-3xl">Olá, {profile.displayName}</h1>
       </div>
-      <div className="grid gap-4 md:grid-cols-5">
+      <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-5">
         <Metric label="Mensagens" value={stats.total} /><Metric label="No lidas" value={stats.unread} /><Metric label="Favoritas" value={stats.favorites} /><Metric label="Visualizaes" value={stats.views} /><Metric label="Compartilhamentos" value={stats.shares} />
       </div>
       <div className="grid gap-5 lg:grid-cols-[1fr_260px]">
         <Card>
           <p className="text-sm text-slateText">Link público</p>
-          <p className="mt-2 break-all text-lg font-semibold">{publicUrl}</p>
-          <div className="mt-5 flex flex-wrap gap-3"><Button onClick={copyLink}><Copy size={18} /> {copied ? "Copiado" : "Copiar link"}</Button><Button variant="secondary"><Share2 size={18} /> Compartilhar</Button><LinkButton variant="secondary" href={publicUrl}>Abrir caixa</LinkButton></div>
+          <p className="mt-2 break-all rounded-xl bg-white/[0.04] p-3 text-sm font-semibold leading-6 sm:text-lg">{publicUrl}</p>
+          <div className="mt-5 grid gap-3 sm:flex sm:flex-wrap"><Button className="min-h-12 w-full sm:w-auto" onClick={copyLink}><Copy size={18} /> {copied ? "Copiado" : "Copiar link"}</Button><Button className="min-h-12 w-full sm:w-auto" variant="secondary"><Share2 size={18} /> Compartilhar</Button><LinkButton className="min-h-12 w-full sm:w-auto" variant="secondary" href={publicUrl}>Abrir caixa</LinkButton></div>
         </Card>
         <Card className="flex flex-col items-center justify-center gap-3"><QrCode className="text-lilac" /><QRCodeSVG value={publicUrl} bgColor="transparent" fgColor="#F8FAFC" /><p className="text-center text-xs text-slateText">QR Code do perfil</p></Card>
       </div>
-      <Card id="stats"><h2 className="text-xl font-bold">Plano atual</h2><p className="mt-2 text-slateText">{subscription?.plan === "pro" ? "Pro" : "Gratuito"}  limite: {getPlanLimitLabel(subscription?.plan ?? "free")}</p><LinkButton className="mt-4" href="/dashboard/subscription">Gerenciar assinatura</LinkButton></Card>
+      <Card id="stats"><h2 className="text-xl font-bold">Plano atual</h2><p className="mt-2 text-slateText">{subscription?.plan === "pro" ? "Pro" : "Gratuito"}  limite: {getPlanLimitLabel(subscription?.plan ?? "free")}</p><LinkButton className="mt-4 min-h-12 w-full sm:w-auto" href="/dashboard/subscription">Gerenciar assinatura</LinkButton></Card>
     </main>
   );
 }
 
 function Metric({ label, value }: { label: string; value: number }) {
-  return <Card><p className="text-sm text-slateText">{label}</p><p className="mt-2 text-3xl font-black">{value}</p></Card>;
+  return <Card className="p-4"><p className="text-xs font-semibold uppercase tracking-normal text-slateText sm:text-sm sm:normal-case">{label}</p><p className="mt-2 text-2xl font-black sm:text-3xl">{value}</p></Card>;
 }
 

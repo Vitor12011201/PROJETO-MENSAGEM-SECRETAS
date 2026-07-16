@@ -86,25 +86,25 @@ export default function HomePage() {
       <main>
         <section className="relative isolate overflow-hidden border-b border-white/10">
           <HeroGlow />
-          <div className="mx-auto grid min-h-[calc(100vh-66px)] max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-16">
+          <div className="mx-auto grid min-h-[calc(100svh-66px)] max-w-7xl items-center gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-16">
             <div className="max-w-3xl space-y-6">
               <div className="relative inline-flex max-w-full items-center gap-3 overflow-hidden rounded-full border border-pinkSoft/35 bg-[#3A1128]/85 px-4 py-2 font-[ui-rounded,system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-sm font-bold leading-none text-pinkSoft shadow-[0_0_18px_rgba(255,61,127,0.14)] backdrop-blur before:absolute before:inset-y-1 before:left-9 before:right-3 before:rounded-full before:bg-pinkSoft/12 before:blur-md sm:text-base">
                 <span aria-hidden="true" className="relative text-[13px] leading-none sm:text-sm">💌</span>
                 <span className="relative leading-tight tracking-normal drop-shadow-[0_0_8px_rgba(255,107,157,0.28)] sm:whitespace-nowrap">Sua caixa secreta fica pronta em menos de 1 minuto</span>
               </div>
               <div className="space-y-4">
-                <h1 className="max-w-4xl text-[39px] font-black leading-[1.02] tracking-normal text-mist sm:text-6xl lg:text-[64px]">
+                <h1 className="max-w-4xl text-[34px] font-black leading-[1.04] tracking-normal text-mist sm:text-6xl lg:text-[64px]">
                   Descubra o que as pessoas <span className="bg-gradient-to-r from-pinkHot via-pinkSoft to-coral bg-clip-text text-transparent">nunca tiveram coragem de te dizer.</span>
                 </h1>
-                <p className="max-w-[600px] text-base leading-8 text-slateText sm:text-lg">
+                <p className="max-w-[600px] text-[15px] leading-7 text-slateText sm:text-lg">
                   Compartilhe seu link e receba confissões, elogios, pedidos de desculpas e mensagens secretas — sem revelar quem enviou.
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col xl:flex-row">
-                <LinkButton href="/signup" className="min-h-[56px] rounded-xl px-7 text-base lg:w-full xl:w-auto">
+                <LinkButton href="/signup" className="min-h-[54px] w-full rounded-xl px-7 text-base sm:w-auto lg:w-full xl:w-auto">
                   Criar minha caixa grátis
                 </LinkButton>
-                <LinkButton href="/v/vitoria" variant="secondary" className="min-h-[56px] rounded-xl px-6 text-base lg:w-full xl:w-auto">
+                <LinkButton href="/v/vitoria" variant="secondary" className="min-h-[54px] w-full rounded-xl px-6 text-base sm:w-auto lg:w-full xl:w-auto">
                   <CirclePlay size={19} /> Ver uma caixa funcionando
                 </LinkButton>
               </div>
@@ -153,7 +153,7 @@ export default function HomePage() {
               )).flatMap((item, index) => index < 2 ? [item, <div key={`line-${index}`} className="hidden h-px w-full translate-y-8 border-t border-dashed border-white/22 lg:block" />] : [item])}
             </div>
             <div className="mt-8 flex justify-center">
-              <LinkButton href="/signup" className="min-h-[52px] rounded-xl px-9">Criar minha caixa grátis</LinkButton>
+              <LinkButton href="/signup" className="min-h-[52px] w-full rounded-xl px-9 sm:w-auto">Criar minha caixa grátis</LinkButton>
             </div>
           </div>
         </section>
@@ -209,7 +209,7 @@ export default function HomePage() {
                   </button>
                 ))}
               </div>
-              <a href="/safety" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-slateText transition hover:text-pinkSoft">Ver todas as perguntas <ArrowRight size={15} /></a>
+              <a href="/safety" className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-slateText transition hover:text-pinkSoft">Ver todas as perguntas <ArrowRight size={15} /></a>
             </div>
           </div>
         </section>
@@ -233,7 +233,7 @@ function HeroGlow() {
 
 function HeroMessagePreview() {
   return (
-    <div className="relative mx-auto w-full max-w-[430px] lg:mr-0">
+    <div className="relative mx-auto w-full max-w-[390px] pt-2 sm:max-w-[430px] lg:mr-0 lg:pt-0">
       <div className="absolute -left-16 top-1/2 z-10 hidden animate-float rounded-xl border border-pinkSoft/35 bg-[#211322]/88 px-4 py-3 text-sm font-semibold text-mist shadow-soft backdrop-blur md:block">
         <span className="inline-flex items-center gap-2"><Star size={16} className="text-honey" /> Alguém enviou<br />um elogio</span>
       </div>
@@ -244,7 +244,7 @@ function HeroMessagePreview() {
         <span className="inline-flex items-center gap-2"><Send size={16} className="text-honey" /> Sua caixa foi<br />compartilhada</span>
       </div>
 
-      <div className="relative mx-auto w-[min(100%,330px)] rounded-[38px] border-[5px] border-white/25 bg-[#090711] p-5 shadow-[0_34px_120px_rgba(255,61,127,0.26)] sm:w-[350px]">
+      <div className="relative mx-auto w-[min(100%,300px)] rounded-[34px] border-[4px] border-white/25 bg-[#090711] p-4 shadow-[0_34px_120px_rgba(255,61,127,0.26)] sm:w-[350px] sm:rounded-[38px] sm:border-[5px] sm:p-5">
         <div className="absolute inset-3 rounded-[30px] border border-white/8 pointer-events-none" />
         <div className="relative rounded-[28px] bg-gradient-to-b from-[#17101F] to-[#08060D] p-5">
           <div className="text-center">
@@ -286,7 +286,7 @@ function StepItem({ index, title, text }: { index: number; title: string; text: 
   const icons = [Heart, Users, Sparkles];
   const Icon = icons[index - 1];
   return (
-    <div className="grid gap-4 sm:grid-cols-[56px_1fr] lg:grid-cols-[64px_1fr]">
+    <div className="grid gap-3 rounded-xl border border-white/8 bg-white/[0.025] p-4 sm:grid-cols-[56px_1fr] lg:border-0 lg:bg-transparent lg:p-0 lg:grid-cols-[64px_1fr]">
       <div className="flex items-start gap-4">
         <span className="text-2xl font-black text-pinkHot">{index}</span>
         <span className="flex size-14 shrink-0 items-center justify-center rounded-full border border-pinkSoft/30 bg-pinkHot/18 text-pinkSoft shadow-[0_0_40px_rgba(255,61,127,0.20)]"><Icon size={24} /></span>
@@ -308,7 +308,7 @@ function PlanCard({ name, price, suffix, features, href, cta, featured = false }
       <ul className="mt-5 flex-1 space-y-2.5 text-sm text-slateText">
         {features.map((feature) => <li key={feature} className="flex gap-2"><Check size={15} className="mt-0.5 shrink-0 text-success" />{feature}</li>)}
       </ul>
-      <LinkButton href={href} variant={featured ? "primary" : "secondary"} className="mt-6 min-h-[50px] rounded-xl">{cta}</LinkButton>
+      <LinkButton href={href} variant={featured ? "primary" : "secondary"} className="mt-6 min-h-[50px] w-full rounded-xl">{cta}</LinkButton>
     </Card>
   );
 }

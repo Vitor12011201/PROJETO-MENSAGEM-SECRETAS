@@ -47,9 +47,9 @@ export function SecurityPageClient() {
       </Card>
       <Card className="grid gap-4">
         <h2 className="text-xl font-bold">Dados e conta</h2>
-        <div className="flex flex-wrap gap-3"><Button variant="secondary" onClick={downloadData}><Download size={16} /> Baixar dados</Button><Button variant="danger" onClick={() => { eraseCurrentUserMessages(); setFeedback("Mensagens apagadas."); }}><Trash2 size={16} /> Apagar todas as mensagens</Button></div>
+        <div className="grid gap-3 sm:flex sm:flex-wrap"><Button className="min-h-12 w-full sm:w-auto" variant="secondary" onClick={downloadData}><Download size={16} /> Baixar dados</Button><Button className="min-h-12 w-full sm:w-auto" variant="danger" onClick={() => { eraseCurrentUserMessages(); setFeedback("Mensagens apagadas."); }}><Trash2 size={16} /> Apagar todas as mensagens</Button></div>
         <Field label="Excluir conta"><Input value={confirmText} onChange={(event) => setConfirmText(event.target.value)} placeholder="Digite EXCLUIR" /></Field>
-        <Button variant="danger" onClick={() => setFeedback(deleteCurrentAccount(confirmText).message)}>Excluir conta</Button>
+        <Button className="min-h-12 w-full sm:w-auto" variant="danger" onClick={() => setFeedback(deleteCurrentAccount(confirmText).message)}>Excluir conta</Button>
         <p className="text-sm text-slateText">Visualizao e encerramento de outras sesses ficam ativos quando Supabase Auth estiver conectado.</p>
       </Card>
     </main>
@@ -57,7 +57,7 @@ export function SecurityPageClient() {
 }
 
 function Toggle({ label, checked, onChange }: { label: string; checked: boolean; onChange: (value: boolean) => void }) {
-  return <label className="flex items-center justify-between gap-4 rounded-lg border border-white/10 bg-white/[0.05] p-3 text-sm"><span>{label}</span><input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} /></label>;
+  return <label className="flex min-h-14 items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.05] p-3.5 text-sm leading-6"><span>{label}</span><input className="size-5 shrink-0 accent-pinkHot" type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} /></label>;
 }
 
 

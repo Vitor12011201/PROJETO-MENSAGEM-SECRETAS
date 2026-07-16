@@ -24,10 +24,10 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
   }
 
   return (
-    <Card className="mx-auto w-full max-w-md">
+    <Card className="mx-auto w-full max-w-md rounded-2xl">
       <h1 className="text-2xl font-bold">{mode === "signup" ? "Criar minha caixa" : "Entrar"}</h1>
       <p className="mt-2 text-sm text-slateText">Modo local com dados simulados. Depois você pode conectar Supabase Auth.</p>
-      <form className="mt-6 space-y-4" onSubmit={handleSubmit(onSubmit)}>
+      <form className="mt-6 space-y-5" onSubmit={handleSubmit(onSubmit)}>
         <Field label="E-mail">
           <Input data-testid="auth-email" aria-label="E-mail" type="email" autoComplete="email" placeholder="voce@email.com" {...register("email")} />
           {errors.email ? <p className="text-sm text-danger">{errors.email.message}</p> : null}
@@ -36,13 +36,13 @@ export function AuthForm({ mode }: { mode: "login" | "signup" }) {
           <Input data-testid="auth-password" aria-label="Senha" type="password" autoComplete={mode === "signup" ? "new-password" : "current-password"} placeholder="Mínimo 8 caracteres" {...register("password")} />
           {errors.password ? <p className="text-sm text-danger">{errors.password.message}</p> : null}
         </Field>
-        <Button disabled={isSubmitting} className="w-full" type="submit">{mode === "signup" ? "Criar conta" : "Entrar"}</Button>
+        <Button disabled={isSubmitting} className="min-h-12 w-full text-base sm:text-sm" type="submit">{mode === "signup" ? "Criar conta" : "Entrar"}</Button>
       </form>
       {feedback ? <p className="mt-4 text-sm text-lilac">{feedback}</p> : null}
-      <div className="mt-5 text-sm text-slateText">
-        {mode === "signup" ? <a className="hover:text-mist" href="/login">Já tenho conta</a> : <a className="hover:text-mist" href="/signup">Criar conta</a>}
-        <span className="mx-2">?</span>
-        <a className="hover:text-mist" href="/login?recover=1">Recuperar senha</a>
+      <div className="mt-5 flex flex-wrap gap-2 text-sm text-slateText">
+        {mode === "signup" ? <a className="inline-flex min-h-10 items-center rounded-lg px-2 hover:text-mist" href="/login">Já tenho conta</a> : <a className="inline-flex min-h-10 items-center rounded-lg px-2 hover:text-mist" href="/signup">Criar conta</a>}
+        <span className="hidden">?</span>
+        <a className="inline-flex min-h-10 items-center rounded-lg px-2 hover:text-mist" href="/login?recover=1">Recuperar senha</a>
       </div>
       <p className="mt-4 text-xs text-slateText">Confirmação de e-mail e recuperação real dependem do Supabase Auth em produção.</p>
     </Card>

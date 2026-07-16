@@ -31,12 +31,12 @@ export function CustomizePageClient() {
 
   return (
     <main className="space-y-6">
-      <div><p className="text-sm text-lilac">Personalizao</p><h1 className="text-3xl font-bold">Ajuste sua caixa</h1></div>
+      <div><p className="text-sm text-lilac">Personalização</p><h1 className="text-2xl font-bold leading-tight sm:text-3xl">Ajuste sua caixa</h1></div>
       <Card className="grid gap-4">
         <Field label="Nome"><Input value={displayName} onChange={(event) => setDisplayName(event.target.value)} /></Field>
         <Field label="Frase da caixa"><Textarea value={promptText} onChange={(event) => setPromptText(event.target.value)} /></Field>
         <Field label="Avatar"><Input value={avatarUrl} onChange={(event) => setAvatarUrl(event.target.value)} placeholder="https://..." /></Field>
-        <Field label="Tema"><select className="focus-ring min-h-11 rounded-lg border border-white/12 bg-night px-3" value={theme} onChange={(event) => setTheme(event.target.value as ThemeName)}>{Object.entries(themeLabels).map(([key, label]) => <option key={key} value={key}>{label}{key === "coracao" ? "  Pro" : ""}</option>)}</select></Field>
+        <Field label="Tema"><select className="focus-ring min-h-12 w-full rounded-xl border border-white/12 bg-night px-4 text-base sm:min-h-11 sm:text-sm" value={theme} onChange={(event) => setTheme(event.target.value as ThemeName)}>{Object.entries(themeLabels).map(([key, label]) => <option key={key} value={key}>{label}{key === "coracao" ? "  Pro" : ""}</option>)}</select></Field>
         <Toggle label="Caixa pública" checked={isPublic} onChange={setIsPublic} />
         <Toggle label="Pausar recebimento" checked={isPaused} onChange={setIsPaused} />
         <Toggle label="Permitir categoria Outro" checked={allowOtherCategory} onChange={setAllowOtherCategory} />
@@ -51,7 +51,7 @@ export function CustomizePageClient() {
 }
 
 function Toggle({ label, checked, onChange }: { label: string; checked: boolean; onChange: (value: boolean) => void }) {
-  return <label className="flex items-center justify-between gap-4 rounded-lg border border-white/10 bg-white/[0.05] p-3 text-sm"><span>{label}</span><input type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} /></label>;
+  return <label className="flex min-h-14 items-center justify-between gap-4 rounded-xl border border-white/10 bg-white/[0.05] p-3.5 text-sm leading-6"><span>{label}</span><input className="size-5 shrink-0 accent-pinkHot" type="checkbox" checked={checked} onChange={(event) => onChange(event.target.checked)} /></label>;
 }
 
 

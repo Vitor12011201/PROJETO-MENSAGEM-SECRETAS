@@ -56,20 +56,20 @@ export function PublicProfile({ username }: { username: string }) {
   }
 
   return (
-    <main className="mx-auto min-h-screen max-w-2xl px-4 py-12">
+    <main className="mx-auto min-h-screen max-w-2xl px-4 py-8 sm:py-12">
       <Card className="text-center">
         <div className="mx-auto flex size-20 items-center justify-center rounded-full bg-gradient-to-br from-violetDeep to-roseSoft text-2xl font-black">
           {profile.avatarUrl ? <span aria-hidden="true" className="size-full rounded-full bg-cover bg-center" style={{ backgroundImage: `url(${profile.avatarUrl})` }} /> : profile.displayName.slice(0, 1)}
         </div>
         <p className="mt-4 text-sm text-slateText">@{profile.username}</p>
-        <h1 className="mt-2 text-3xl font-bold">{profile.displayName}</h1>
-        <p className="mt-4 text-lg leading-8 text-mist">{profile.promptText}</p>
+        <h1 className="mt-2 text-2xl font-bold leading-tight sm:text-3xl">{profile.displayName}</h1>
+        <p className="mt-4 text-base leading-7 text-mist sm:text-lg sm:leading-8">{profile.promptText}</p>
       </Card>
 
       <Card className="mt-5">
         <div className="grid gap-4">
           <Field label="Categoria">
-            <select className="focus-ring min-h-11 w-full rounded-lg border border-white/12 bg-night px-3 text-sm" value={category} onChange={(event) => setCategory(event.target.value as MessageCategory)}>
+            <select className="focus-ring min-h-12 w-full rounded-xl border border-white/12 bg-night px-4 text-base sm:min-h-11 sm:text-sm" value={category} onChange={(event) => setCategory(event.target.value as MessageCategory)}>
               {categories.map(([key, label]) => <option key={key} value={key}>{label}</option>)}
             </select>
           </Field>
@@ -77,14 +77,14 @@ export function PublicProfile({ username }: { username: string }) {
             <Textarea data-testid="public-message" aria-label="Mensagem" maxLength={500} value={content} onChange={(event) => setContent(event.target.value)} placeholder="Escreva algo positivo, respeitoso e verdadeiro..." />
             {!profile.hideCounter ? <p className="text-right text-xs text-slateText">{content.length}/500</p> : null}
           </Field>
-          <label className="flex gap-3 rounded-lg border border-white/10 bg-white/[0.05] p-3 text-sm leading-6 text-slateText">
-            <input data-testid="public-safety" className="mt-1" type="checkbox" checked={confirmed} onChange={(event) => setConfirmed(event.target.checked)} />
+          <label className="flex min-h-14 gap-3 rounded-xl border border-white/10 bg-white/[0.05] p-3.5 text-sm leading-6 text-slateText">
+            <input data-testid="public-safety" className="mt-1 size-5 shrink-0 accent-pinkHot" type="checkbox" checked={confirmed} onChange={(event) => setConfirmed(event.target.checked)} />
             Confirmo que esta mensagem não contém ameaça, humilhação, acusação, informação privada ou conteúdo ofensivo.
           </label>
           <div className="rounded-lg border border-lilac/30 bg-lilac/10 p-3 text-sm leading-6 text-slateText">
             <ShieldCheck className="mb-2 text-lilac" size={18} /> Sua identidade não será exibida ao destinatário. Algumas informações técnicas podem ser armazenadas para segurança, prevenção de abuso e cumprimento de obrigações legais.
           </div>
-          <Button onClick={onSubmit}><Send size={18} /> Enviar mensagem</Button>
+          <Button className="min-h-12 w-full text-base sm:text-sm" onClick={onSubmit}><Send size={18} /> Enviar mensagem</Button>
           {feedback ? <p className={sent ? "text-sm text-success" : "text-sm text-danger"}>{feedback}</p> : null}
           {sent ? <LinkButton href="/signup" variant="secondary">Agora crie sua própria caixa secreta</LinkButton> : null}
         </div>
@@ -94,7 +94,7 @@ export function PublicProfile({ username }: { username: string }) {
 }
 
 function StateCard({ title, message }: { title: string; message: string }) {
-  return <main className="mx-auto flex min-h-screen max-w-lg items-center px-4"><Card><h1 className="text-2xl font-bold">{title}</h1><p className="mt-3 text-slateText">{message}</p><LinkButton className="mt-6" href="/signup">Criar minha caixa</LinkButton></Card></main>;
+  return <main className="mx-auto flex min-h-screen max-w-lg items-center px-4 py-8"><Card><h1 className="text-2xl font-bold">{title}</h1><p className="mt-3 text-slateText">{message}</p><LinkButton className="mt-6 min-h-12 w-full" href="/signup">Criar minha caixa</LinkButton></Card></main>;
 }
 
 

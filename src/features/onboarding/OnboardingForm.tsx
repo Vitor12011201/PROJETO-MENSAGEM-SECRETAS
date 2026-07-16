@@ -39,8 +39,8 @@ export function OnboardingForm() {
   }
 
   return (
-    <Card className="mx-auto max-w-2xl">
-      <h1 className="text-3xl font-bold">Configure sua caixa secreta</h1>
+    <Card className="mx-auto max-w-2xl rounded-2xl">
+      <h1 className="text-2xl font-bold leading-tight sm:text-3xl">Configure sua caixa secreta</h1>
       <p className="mt-2 text-sm text-slateText">Seu link público será criado a partir do username.</p>
       <form className="mt-6 grid gap-4" onSubmit={handleSubmit(onSubmit)}>
         <Field label="Nome de exibicao"><Input data-testid="onboarding-display-name" aria-label="Nome de exibicao" {...register("displayName")} placeholder="Vitoria" />{errors.displayName ? <p className="text-sm text-danger">{errors.displayName.message}</p> : null}</Field>
@@ -48,14 +48,14 @@ export function OnboardingForm() {
         <Field label="Frase da caixa"><Textarea aria-label="Frase da caixa" {...register("promptText")} />{errors.promptText ? <p className="text-sm text-danger">{errors.promptText.message}</p> : null}</Field>
         <Field label="Avatar opcional"><Input {...register("avatarUrl")} placeholder="https://..." />{errors.avatarUrl ? <p className="text-sm text-danger">{errors.avatarUrl.message}</p> : null}</Field>
         <Field label="Tema visual">
-          <select className="focus-ring min-h-11 rounded-lg border border-white/12 bg-night px-3 text-sm" {...register("theme")}>
+          <select className="focus-ring min-h-12 w-full rounded-xl border border-white/12 bg-night px-4 text-base sm:min-h-11 sm:text-sm" {...register("theme")}>
             <option value="noite">Noite</option><option value="aurora">Aurora</option><option value="coracao">Coração</option><option value="minimalista">Minimalista</option>
           </select>
         </Field>
-        <label className="flex gap-3 text-sm text-slateText"><input type="checkbox" {...register("termsAccepted")} /> Aceito os Termos de Uso.</label>
-        <label className="flex gap-3 text-sm text-slateText"><input type="checkbox" {...register("privacyAccepted")} /> Aceito a Política de Privacidade.</label>
-        <label className="flex gap-3 text-sm text-slateText"><input type="checkbox" {...register("minimumAgeConfirmed")} /> Confirmo que tenho a idade mínima exigida.</label>
-        <Button data-testid="onboarding-submit" disabled={isSubmitting} type="submit">Criar minha página</Button>
+        <label className="flex min-h-11 items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3 text-sm leading-6 text-slateText"><input className="mt-1 size-5 shrink-0 accent-pinkHot" type="checkbox" {...register("termsAccepted")} /> Aceito os Termos de Uso.</label>
+        <label className="flex min-h-11 items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3 text-sm leading-6 text-slateText"><input className="mt-1 size-5 shrink-0 accent-pinkHot" type="checkbox" {...register("privacyAccepted")} /> Aceito a Política de Privacidade.</label>
+        <label className="flex min-h-11 items-start gap-3 rounded-xl border border-white/10 bg-white/[0.04] p-3 text-sm leading-6 text-slateText"><input className="mt-1 size-5 shrink-0 accent-pinkHot" type="checkbox" {...register("minimumAgeConfirmed")} /> Confirmo que tenho a idade mínima exigida.</label>
+        <Button data-testid="onboarding-submit" disabled={isSubmitting} className="min-h-12 w-full text-base sm:text-sm" type="submit">Criar minha página</Button>
       </form>
       {feedback ? <p className="mt-4 text-sm text-lilac">{feedback}</p> : null}
     </Card>

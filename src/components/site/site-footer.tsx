@@ -38,8 +38,8 @@ export function SiteFooter() {
           <h2 className="max-w-xl text-2xl font-black leading-tight text-mist sm:text-3xl">Talvez alguém esteja esperando uma chance de falar com você.</h2>
           <p className="max-w-md text-sm leading-6 text-slateText">Crie sua caixa, compartilhe seu link e descubra o que nunca tiveram coragem de dizer.</p>
           <div className="relative z-10 flex flex-col gap-2 lg:items-start">
-            <LinkButton href="/signup" className="min-h-[52px] rounded-xl px-8">Quero criar minha caixa grátis</LinkButton>
-            <span className="text-center text-xs text-mutedText lg:pl-8">Leva menos de 1 minuto.</span>
+            <LinkButton href="/signup" className="min-h-[52px] w-full rounded-xl px-8 sm:w-auto">Quero criar minha caixa grátis</LinkButton>
+            <span className="text-center text-xs text-mutedText sm:text-left lg:pl-8">Leva menos de 1 minuto.</span>
           </div>
         </div>
         <div className="grid gap-8 p-6 text-sm text-slateText sm:p-8 lg:grid-cols-[1.35fr_1fr_1fr_1fr_1fr]">
@@ -50,16 +50,16 @@ export function SiteFooter() {
           {columns.map((column) => (
             <div key={column.title}>
               <h3 className="font-bold text-mist">{column.title}</h3>
-              <div className="mt-3 flex flex-col gap-2">
-                {column.links.map(([label, href]) => <a key={label} className="transition hover:text-pinkSoft" href={href}>{label}</a>)}
+              <div className="mt-3 flex flex-col gap-1">
+                {column.links.map(([label, href]) => <a key={label} className="inline-flex min-h-10 items-center transition hover:text-pinkSoft" href={href}>{label}</a>)}
               </div>
             </div>
           ))}
           <div>
             <h3 className="font-bold text-mist">Redes</h3>
-            <div className="mt-3 flex flex-col gap-2">
-              <a className="inline-flex items-center gap-2 transition hover:text-pinkSoft" href="#"><Instagram size={15} /> Instagram</a>
-              <a className="inline-flex items-center gap-2 transition hover:text-pinkSoft" href="#"><Music2 size={15} /> TikTok</a>
+            <div className="mt-3 flex flex-col gap-1">
+              <a className="inline-flex min-h-10 items-center gap-2 transition hover:text-pinkSoft" href="#"><Instagram size={15} /> Instagram</a>
+              <a className="inline-flex min-h-10 items-center gap-2 transition hover:text-pinkSoft" href="#"><Music2 size={15} /> TikTok</a>
             </div>
           </div>
         </div>
