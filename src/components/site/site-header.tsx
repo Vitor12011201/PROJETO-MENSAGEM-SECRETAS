@@ -16,9 +16,9 @@ export function SiteHeader() {
           <Link className="transition hover:text-pinkSoft" href="/#planos">Planos</Link>
           <Link className="transition hover:text-pinkSoft" href="/#faq">FAQ</Link>
         </nav>
-        <div className="flex min-w-0 items-center gap-2">
-          <LinkButton href="/login" variant="ghost" className="hidden rounded-xl bg-white/[0.03] px-5 sm:inline-flex">Entrar</LinkButton>
-          <LinkButton href="/signup" className="min-h-11 rounded-xl px-3.5 text-[13px] sm:px-5 sm:text-sm">Criar caixa grátis</LinkButton>
+        <div className="flex min-w-0 items-center gap-1 sm:gap-2">
+          <LinkButton href="/login" variant="ghost" className="min-h-10 rounded-xl bg-white/[0.03] px-2.5 text-[13px] sm:min-h-11 sm:px-5 sm:text-sm">Entrar</LinkButton>
+          <LinkButton href="/signup" className="min-h-10 rounded-xl px-2.5 text-[13px] sm:min-h-11 sm:px-5 sm:text-sm"><span className="sm:hidden">Criar</span><span className="hidden sm:inline">Criar caixa grátis</span></LinkButton>
         </div>
       </div>
     </header>
