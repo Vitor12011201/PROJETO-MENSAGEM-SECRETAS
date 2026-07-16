@@ -15,7 +15,8 @@ describe("copy review", () => {
     expect(page).toContain("Sua caixa secreta fica pronta em menos de 1 minuto");
     expect(page).toContain("Criar minha caixa grátis");
     expect(page).toContain("Ver uma caixa funcionando");
-    expect(page).toContain("Sua identidade não será exibida ao destinatário.");
+    expect(page).toContain("Sua caixa, suas regras");
+    expect(page).toContain("A identidade do remetente não é exibida ao destinatário.");
   });
 
   it("keeps public message and success copy correct", () => {
