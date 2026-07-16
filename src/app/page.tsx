@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { ArrowRight, Ban, Check, ChevronDown, CirclePlay, Flag, Gift, Heart, Lock, Mail, PauseCircle, Send, ShieldCheck, Sparkles, Star, Users } from "lucide-react";
+import { ArrowRight, Ban, Check, ChevronDown, CirclePlay, Flag, Gift, Heart, Lock, PauseCircle, Send, ShieldCheck, Sparkles, Star, Users } from "lucide-react";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
 import { LinkButton } from "@/components/ui/button";
@@ -89,7 +89,7 @@ export default function HomePage() {
           <div className="mx-auto grid min-h-[calc(100vh-66px)] max-w-7xl items-center gap-10 px-4 py-10 sm:px-6 lg:grid-cols-[1.02fr_0.98fr] lg:px-8 lg:py-16">
             <div className="max-w-3xl space-y-6">
               <div className="inline-flex items-center gap-2 rounded-full border border-pinkSoft/45 bg-[#130C18]/80 px-3 py-1 text-[11px] font-black uppercase tracking-[0.05em] text-mist shadow-[0_0_30px_rgba(255,61,127,0.22)]">
-                <Mail size={13} className="text-pinkSoft" /> Sua caixa secreta fica pronta em menos de 1 minuto
+                <span aria-hidden="true">💌</span> Sua caixa secreta fica pronta em menos de 1 minuto
               </div>
               <div className="space-y-4">
                 <h1 className="max-w-4xl text-[39px] font-black leading-[1.02] tracking-normal text-mist sm:text-6xl lg:text-[64px]">
